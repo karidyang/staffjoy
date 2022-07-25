@@ -1,4 +1,5 @@
-FROM node:alpine as builder
+FROM node:12.10-slim as builder
+RUN apt-get update || : && apt-get install python build-essential -y
 WORKDIR '/build'
 COPY app ./app
 COPY resources ./resources
